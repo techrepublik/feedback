@@ -1,0 +1,83 @@
+{% extends 'admin_base.html' %}
+
+{% block content %}
+<h2 class="mt-3">Dashboard Overview</h2>
+
+<!-- Key Metrics Section -->
+<div class="row">
+    <div class="col-md-4">
+        <div class="card mb-4 shadow-sm">
+            <div class="card-header">Total Surveys</div>
+            <div class="card-body">
+                <h5>150</h5>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card mb-4 shadow-sm">
+            <div class="card-header">Responses</div>
+            <div class="card-body">
+                <h5>2500</h5>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card mb-4 shadow-sm">
+            <div class="card-header">Active Users</div>
+            <div class="card-body">
+                <h5>120</h5>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Chart Section (Placeholder) -->
+<div class="card mb-4">
+    <div class="card-header">Survey Responses Over Time</div>
+    <div class="card-body">
+        <canvas id="surveyChart" width="400" height="200"></canvas>
+    </div>
+</div>
+
+<!-- Recent Feedback Table -->
+<div class="card mb-4">
+    <div class="card-header">Recent Feedback</div>
+    <div class="card-body">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>User</th>
+                    <th>Rating</th>
+                    <th>Comment</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>2024-10-25</td>
+                    <td>John Doe</td>
+                    <td>⭐⭐⭐⭐⭐</td>
+                    <td>Great service!</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    var ctx = document.getElementById('surveyChart').getContext('2d');
+    var surveyChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
+            datasets: [{
+                label: 'Responses',
+                data: [10, 50, 30, 70, 90],
+                borderColor: '#28a745',
+                fill: false
+            }]
+        }
+    });
+</script>
+{% endblock %}
