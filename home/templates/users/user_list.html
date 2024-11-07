@@ -39,11 +39,7 @@
                 {% endif %}
             </td>
             <td>
-                {% if user.qrcode %}
-                    <img src="{{ user.qrcode.url }}" alt="Qrcode" width="50">
-                {% else %}
-                    No Picture
-                {% endif %}
+               {{user.user_id}}
             </td>
             <td>
                 <a href="#" hx-get="{% url 'home:user_update' user.pk %}" hx-target="#content-area" class="btn btn-warning btn-sm">Edit</a>
